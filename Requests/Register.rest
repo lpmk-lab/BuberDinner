@@ -1,5 +1,8 @@
-POST  http://localhost:5189/auth/register HTTP/1.1
-Content-Type: application/json
+@host= http://localhost:5189
+
+POST {{host}}/auth/register HTTP/1.1
+content-type: application/json
+
 {
   "firstName": "John",
   "lastName": "Doe",
