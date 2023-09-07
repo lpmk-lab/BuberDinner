@@ -1,4 +1,6 @@
 using BuberDinner.Application.Common.Interfaces.Authentication;
+using BuberDinner.Application.Common.Interfaces.Persistence;
+using BuberDinner.Domain.Entities;
 
 namespace BuberDinner.Application.Services.Authentication;
 
@@ -7,19 +9,32 @@ public class AuthenticationService : IAuthenticationService
 
 
     private readonly IJWTokenGenerator _IJWTokenGenerator;
-    public AuthenticationService(IJWTokenGenerator IJWTokenGenerator)
+    private readonly IUserRepository _IUserRepository;
+    public AuthenticationService(IJWTokenGenerator IJWTokenGenerator, IUserRepository IUserRepository)
     {
           _IJWTokenGenerator=IJWTokenGenerator;
+        _IUserRepository = IUserRepository;
     }
     public AuthenticationResult Login(string Email, string Password)
     {
-      
+       //1 Validate User Exit
+       if(_IUserRepository.GetUserByEmail(Email) is not User user) 
+        {
+            throw new Exception("User With Given Emial is Does not Exit");
+        }
+
+       //2 Validate Password Is Correct
+       if(user.Password != Password)
+        {
+            throw new Exception("Password is Invaild");
+
+        }
+       //3 Create Token
+        var token = _IJWTokenGenerator.GenerateToken(user);
+
         return new AuthenticationResult(
-            Guid.NewGuid(),
-            "FirstName",
-            "LastName",
-            Email,
-            "Token"
+            user,
+            token
             );
      }
 
@@ -27,18 +42,25 @@ public class AuthenticationService : IAuthenticationService
     {
       
       //Check if User Already Exist
+      if(_IUserRepository.GetUserByEmail(Email) != null)
+        {
+            throw new Exception("User With Given Email  Already Exist");
+        }
 
-      //Create User(Generate Unique GUID) 
+      //Create User(Generate Unique GUID)  & Persit to DB
+      var user=new User { 
+          FirstName = FirstName,
+          LastName = LastName,
+          Email = Email,
+          Password = Password };
 
+        _IUserRepository.AddUser(user);
       //Create  JWtoken
-      Guid userId=Guid.NewGuid();
-      var token=_IJWTokenGenerator.GenerateToken(userId,FirstName,LastName);
+   
+      var token=_IJWTokenGenerator.GenerateToken(user);
 
           return new AuthenticationResult(
-            Guid.NewGuid(),
-            FirstName,
-            LastName,
-            Email,
+             user,
              token
             );
     }

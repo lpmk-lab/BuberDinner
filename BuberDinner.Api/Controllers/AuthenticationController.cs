@@ -27,11 +27,11 @@ namespace  BuberDinner.Api.Controllers;
             request.Email,
             request.Password
         );
-        var response= new AuthenticationResult(
-            authResult.Id,
-            authResult.FirstName,
-            authResult.LastName,
-            authResult.Email,
+        var response= new AuthenticationResponse(
+            authResult.user.Id,
+            authResult.user.FirstName,
+            authResult.user.LastName,
+            authResult.user.Email,
               authResult.Token
         );
         return Ok(response);
@@ -45,11 +45,11 @@ namespace  BuberDinner.Api.Controllers;
             request.Email,
             request.Password
         );
-        var response= new AuthenticationResult(
-            authResult.Id,
-            authResult.FirstName,
-            authResult.LastName,
-            authResult.Email,
+        var response= new AuthenticationResponse(
+            authResult.user.Id,
+            authResult.user.FirstName,
+            authResult.user.LastName,
+            authResult.user.Email,
               authResult.Token
         );
          return Ok(response);
