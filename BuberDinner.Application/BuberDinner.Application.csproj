@@ -9,6 +9,14 @@
 
 
   <ItemGroup>
+    <Compile Remove="Common\Errors\DuplicateEmailException.cs" />
+    <Compile Remove="Common\Errors\IError.cs" />
+    <Compile Remove="Common\Errors\IServiceException.cs" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="FluentResults" Version="3.15.2" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
   </ItemGroup>
 

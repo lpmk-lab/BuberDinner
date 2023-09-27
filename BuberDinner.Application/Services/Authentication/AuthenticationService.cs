@@ -1,6 +1,8 @@
+using BuberDinner.Application.Common.Errors;
 using BuberDinner.Application.Common.Interfaces.Authentication;
 using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Domain.Entities;
+using FluentResults;
 
 namespace BuberDinner.Application.Services.Authentication;
 
@@ -38,13 +40,13 @@ public class AuthenticationService : IAuthenticationService
             );
      }
 
-    public AuthenticationResult Register(string FirstName, string LastName, string Email, string Password)
+    public Result<AuthenticationResult> Register(string FirstName, string LastName, string Email, string Password)
     {
       
       //Check if User Already Exist
       if(_IUserRepository.GetUserByEmail(Email) != null)
         {
-            throw new Exception("User With Given Email  Already Exist");
+            return Result.Fail<AuthenticationResult>(new[] { new DuplicateEmailError() });
         }
 
       //Create User(Generate Unique GUID)  & Persit to DB

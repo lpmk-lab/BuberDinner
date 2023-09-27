@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using BuberDinner.Application.Common.Errors;
 
 namespace BuberDinner.Api.Controllers
 {
@@ -9,7 +10,8 @@ namespace BuberDinner.Api.Controllers
         public IActionResult Error()
         {
             Exception? exception = HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error;
-            return Problem(title:exception?.Message, statusCode:400);
+          
+            return Problem();
 
         }
 

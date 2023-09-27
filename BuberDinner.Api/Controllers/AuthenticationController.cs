@@ -1,6 +1,9 @@
+using BuberDinner.Application.Common.Errors;
 using BuberDinner.Application.Services.Authentication;
 using BuberDinner.Contracts.Authentication;
+using FluentResults;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace  BuberDinner.Api.Controllers;
 
@@ -21,20 +24,34 @@ namespace  BuberDinner.Api.Controllers;
     [HttpPost("register")]
     public IActionResult  Register(RegisterRequest request){
 
-        var authResult=_IAuthenticationService.Register(
+        Result<AuthenticationResult> registerResult=_IAuthenticationService.Register(
             request.FirstName,
             request.LastName,
             request.Email,
             request.Password
         );
-        var response= new AuthenticationResponse(
-            authResult.user.Id,
-            authResult.user.FirstName,
-            authResult.user.LastName,
-            authResult.user.Email,
-              authResult.Token
-        );
-        return Ok(response);
+        if (registerResult.IsSuccess)
+        {
+            return Ok(MapAuthResult(registerResult.Value));
+        }
+        var firstError = registerResult.Errors[0];
+        if(firstError is DuplicateEmailError)
+        {
+            return Problem(statusCode: StatusCodes.Status409Conflict, title: "email is already Used");
+        }
+        return Problem();
+    }
+
+    private static AuthenticationResponse MapAuthResult(AuthenticationResult authResult)
+    {
+        
+        return new AuthenticationResponse(
+           authResult.user.Id,
+           authResult.user.FirstName,
+           authResult.user.LastName,
+           authResult.user.Email,
+           authResult.Token
+   );
     }
 
     [HttpPost("login")]
