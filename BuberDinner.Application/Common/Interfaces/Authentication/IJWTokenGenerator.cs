@@ -1,6 +1,6 @@
-using BuberDinner.Domain.Entities;
+using SS_RMS.Domain.Entities;
 
-namespace BuberDinner.Application.Common.Interfaces.Authentication;
+namespace SS_RMS.Application.Common.Interfaces.Authentication;
 
 public interface IJWTokenGenerator
 {

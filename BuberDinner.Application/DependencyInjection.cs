@@ -1,7 +1,7 @@
-using BuberDinner.Application.Services.Authentication;
+using SS_RMS.Application.Services.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BuberDinner.Application;
+namespace SS_RMS.Application;
 
 public static class DependencyInjection
 {

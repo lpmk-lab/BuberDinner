@@ -1,7 +1,7 @@
-using BuberDinner.Application.Common.Errors;
+using SS_RMS.Application.Common.Errors;
 using FluentResults;
 
-namespace BuberDinner.Application.Services.Authentication;
+namespace SS_RMS.Application.Services.Authentication;
 
 public interface IAuthenticationService
 {

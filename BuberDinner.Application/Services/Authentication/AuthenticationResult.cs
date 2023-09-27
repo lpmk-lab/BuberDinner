@@ -1,6 +1,6 @@
-using BuberDinner.Domain.Entities;
+using SS_RMS.Domain.Entities;
 
-namespace BuberDinner.Application.Services.Authentication;
+namespace SS_RMS.Application.Services.Authentication;
 
 public record AuthenticationResult(
     User user,

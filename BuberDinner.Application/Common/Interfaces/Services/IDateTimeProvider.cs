@@ -1,5 +1,5 @@
 ﻿
-namespace BuberDinner.Application.Common.Interfaces.Services
+namespace SS_RMS.Application.Common.Interfaces.Services
 {
     public interface IDateTimeProvider
     {

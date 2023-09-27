@@ -1,11 +1,11 @@
-using BuberDinner.Application.Common.Errors;
-using BuberDinner.Application.Services.Authentication;
-using BuberDinner.Contracts.Authentication;
+using SS_RMS.Application.Common.Errors;
+using SS_RMS.Application.Services.Authentication;
+using SS_RMS.Contracts.Authentication;
 using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 
 
-namespace  BuberDinner.Api.Controllers;
+namespace  SS_RMS.Api.Controllers;
 
 [ApiController]
 [Route("auth")]

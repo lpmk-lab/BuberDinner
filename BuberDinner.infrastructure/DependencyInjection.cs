@@ -1,13 +1,13 @@
-using BuberDinner.Application.Common.Interfaces.Authentication;
-using BuberDinner.Application.Common.Interfaces.Persistence;
-using BuberDinner.Application.Common.Interfaces.Services;
-using BuberDinner.infrastructure.Authentication;
-using BuberDinner.Infrastructure.Authentication;
-using BuberDinner.Infrastructure.Persistence;
-using BuberDinner.Infrastructure.Services;
+using SS_RMS.Application.Common.Interfaces.Authentication;
+using SS_RMS.Application.Common.Interfaces.Persistence;
+using SS_RMS.Application.Common.Interfaces.Services;
+using SS_RMS.infrastructure.Authentication;
+using SS_RMS.Infrastructure.Authentication;
+using SS_RMS.Infrastructure.Persistence;
+using SS_RMS.Infrastructure.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-namespace BuberDinner.infrastructure;
+namespace SS_RMS.infrastructure;
 
 
 public static class DependencyInjection{

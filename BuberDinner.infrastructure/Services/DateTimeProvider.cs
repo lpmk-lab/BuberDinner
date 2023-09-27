@@ -1,7 +1,7 @@
 ﻿
-using BuberDinner.Application.Common.Interfaces.Services;
+using SS_RMS.Application.Common.Interfaces.Services;
 
-namespace BuberDinner.Infrastructure.Services
+namespace SS_RMS.Infrastructure.Services
 {
     public class DateTimeProvider : IDateTimeProvider
     {

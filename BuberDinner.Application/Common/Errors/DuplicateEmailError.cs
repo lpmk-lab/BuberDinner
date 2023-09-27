@@ -5,7 +5,7 @@
 
 using FluentResults;
 
-namespace BuberDinner.Application.Common.Errors;
+namespace SS_RMS.Application.Common.Errors;
 
 public class DuplicateEmailError : IError
 {

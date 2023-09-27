@@ -22,7 +22,7 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\BuberDinner.Domain\BuberDinner.Domain.csproj" />
+    <ProjectReference Include="..\BuberDinner.Domain\SmartRMS.Domain.csproj" />
   </ItemGroup>
 
 

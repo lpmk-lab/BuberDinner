@@ -1,10 +1,10 @@
-using BuberDinner.Application.Common.Errors;
-using BuberDinner.Application.Common.Interfaces.Authentication;
-using BuberDinner.Application.Common.Interfaces.Persistence;
-using BuberDinner.Domain.Entities;
+using SS_RMS.Application.Common.Errors;
+using SS_RMS.Application.Common.Interfaces.Authentication;
+using SS_RMS.Application.Common.Interfaces.Persistence;
+using SS_RMS.Domain.Entities;
 using FluentResults;
 
-namespace BuberDinner.Application.Services.Authentication;
+namespace SS_RMS.Application.Services.Authentication;
 
 public class AuthenticationService : IAuthenticationService
 {

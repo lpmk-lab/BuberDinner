@@ -9,9 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BuberDinner.Contracts\BuberDinner.Contracts.csproj" />
-    <ProjectReference Include="..\BuberDinner.Application\BuberDinner.Application.csproj" />
-    <ProjectReference Include="..\BuberDinner.infrastructure\BuberDinner.infrastructure.csproj" />
+    <ProjectReference Include="..\BuberDinner.Contracts\SmartRMS.Contracts.csproj" />
+    <ProjectReference Include="..\BuberDinner.Application\SmartRMS.Application.csproj" />
+    <ProjectReference Include="..\BuberDinner.Infrastructure\SmartRMS.Infrastructure.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

@@ -1,5 +1,5 @@
 ﻿
-namespace BuberDinner.Domain.Entities
+namespace SS_RMS.Domain.Entities
 {
     public class User
     {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using BuberDinner.Application.Common.Errors;
+using SS_RMS.Application.Common.Errors;
 
-namespace BuberDinner.Api.Controllers
+namespace SS_RMS.Api.Controllers
 {
     public class ErrorController:ControllerBase
     {

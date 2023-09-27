@@ -1,4 +1,4 @@
-namespace BuberDinner.Contracts.Authentication;
+namespace SS_RMS.Contracts.Authentication;
 
 public record AuthenticationResponse(
     Guid Id,

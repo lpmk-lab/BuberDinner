@@ -2,7 +2,7 @@
 using System.Net;
 using System.Text.Json;
 
-namespace BuberDinner.Api.Middleware
+namespace SS_RMS.Api.Middleware
 {
     public class ErrorHandlingMiddleware
     {

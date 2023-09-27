@@ -1,6 +1,6 @@
 ﻿
 
-namespace BuberDinner.Infrastructure.Authentication
+namespace SS_RMS.Infrastructure.Authentication
 {
     public class JwtSetting
     {

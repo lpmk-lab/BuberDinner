@@ -1,4 +1,4 @@
-﻿namespace BuberDinner.Domain;
+﻿namespace SS_RMS.Domain;
 
 public class Class1
 {

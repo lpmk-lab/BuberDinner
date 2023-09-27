@@ -4,15 +4,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Diagnostics;
 
-namespace BuberDinner.Api.Common.Errors
+namespace SS_RMS.Api.Common.Errors
 {
 
-    public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
+    public class SS_RMSProblemDetailsFactory : ProblemDetailsFactory
     {
         private readonly ApiBehaviorOptions _options;
         private readonly Action<ProblemDetailsContext>? _configure;
 
-        public BuberDinnerProblemDetailsFactory(
+        public SS_RMSProblemDetailsFactory(
             IOptions<ApiBehaviorOptions> options,
             IOptions<ProblemDetailsOptions>? problemDetailsOptions = null)
         {

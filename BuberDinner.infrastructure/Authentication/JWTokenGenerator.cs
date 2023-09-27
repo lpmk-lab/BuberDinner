@@ -1,9 +1,9 @@
 
 
-using BuberDinner.Application.Common.Interfaces.Authentication;
-using BuberDinner.Application.Common.Interfaces.Services;
-using BuberDinner.Domain.Entities;
-using BuberDinner.Infrastructure.Authentication;
+using SS_RMS.Application.Common.Interfaces.Authentication;
+using SS_RMS.Application.Common.Interfaces.Services;
+using SS_RMS.Domain.Entities;
+using SS_RMS.Infrastructure.Authentication;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualBasic;
@@ -11,7 +11,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace BuberDinner.infrastructure.Authentication;
+namespace SS_RMS.infrastructure.Authentication;
 
 public class JWTokenGenerator: IJWTokenGenerator
 {

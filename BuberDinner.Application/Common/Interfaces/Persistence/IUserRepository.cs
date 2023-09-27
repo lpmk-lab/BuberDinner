@@ -4,9 +4,9 @@
 
 
 
-using BuberDinner.Domain.Entities;
+using SS_RMS.Domain.Entities;
 
-namespace BuberDinner.Application.Common.Interfaces.Persistence
+namespace SS_RMS.Application.Common.Interfaces.Persistence
 {
     public interface IUserRepository
     {

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
 
-namespace BuberDinner.Api.Filters
+namespace SS_RMS.Api.Filters
 {
     public class ErrorHandlingFilter: ExceptionFilterAttribute
     {

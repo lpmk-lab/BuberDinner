@@ -17,7 +17,7 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\BuberDinner.Application\BuberDinner.Application.csproj" />
+    <ProjectReference Include="..\BuberDinner.Application\SmartRMS.Application.csproj" />
   </ItemGroup>
   
 </Project>

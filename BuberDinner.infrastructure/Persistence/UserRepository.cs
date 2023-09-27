@@ -1,8 +1,8 @@
 ﻿
-using BuberDinner.Application.Common.Interfaces.Persistence;
-using BuberDinner.Domain.Entities;
+using SS_RMS.Application.Common.Interfaces.Persistence;
+using SS_RMS.Domain.Entities;
 
-namespace BuberDinner.Infrastructure.Persistence
+namespace SS_RMS.Infrastructure.Persistence
 {
     public class UserRepository : IUserRepository
     {
