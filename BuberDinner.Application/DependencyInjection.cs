@@ -1,5 +1,5 @@
-using SS_RMS.Application.Services.Authentication;
 using Microsoft.Extensions.DependencyInjection;
+using MediatR;
 
 namespace SS_RMS.Application;
 
@@ -8,7 +8,7 @@ public static class DependencyInjection
 
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-          services.AddScoped<IAuthenticationService,AuthenticationService>();
+        services.AddMediatR(typeof(DependencyInjection).Assembly);
           return  services;
     }
 

@@ -1,6 +1,6 @@
 using SS_RMS.Domain.Entities;
 
-namespace SS_RMS.Application.Services.Authentication;
+namespace SmartRMS.Application.Authentication.Commands.Commons;
 
 public record AuthenticationResult(
     User user,

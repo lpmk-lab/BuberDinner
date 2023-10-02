@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using SS_RMS.Application.Common.Errors;
-
 namespace SS_RMS.Api.Controllers
 {
     public class ErrorController:ControllerBase

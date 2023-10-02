@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Diagnostics;
+using ErrorOr;
+using SmartRMS.Api.Common.Https;
 
 namespace SS_RMS.Api.Common.Errors
 {
@@ -91,7 +93,14 @@ namespace SS_RMS.Api.Common.Errors
             {
                 problemDetails.Extensions["traceId"] = traceId;
             }
-            problemDetails.Extensions.Add("CustomProperty","CustomValue");
+
+            var errors = httpContext?.Items[HttpContextItemsKeys.Errors] as List<Error>;
+            if(errors != null)
+            {
+                problemDetails.Extensions.Add("ErrorCode", errors.Select(e => e.Code));
+            }
+
+      
             _configure?.Invoke(new() { HttpContext = httpContext!, ProblemDetails = problemDetails });
         }
     }

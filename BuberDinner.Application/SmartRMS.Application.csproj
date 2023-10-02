@@ -9,20 +9,33 @@
 
 
   <ItemGroup>
-    <Compile Remove="Common\Errors\DuplicateEmailException.cs" />
-    <Compile Remove="Common\Errors\IError.cs" />
-    <Compile Remove="Common\Errors\IServiceException.cs" />
+    <Compile Remove="Common\Errors\**" />
+    <Compile Remove="Services\Authentication\Commands\**" />
+    <Compile Remove="Services\Authentication\Qurries\**" />
+    <EmbeddedResource Remove="Common\Errors\**" />
+    <EmbeddedResource Remove="Services\Authentication\Commands\**" />
+    <EmbeddedResource Remove="Services\Authentication\Qurries\**" />
+    <None Remove="Common\Errors\**" />
+    <None Remove="Services\Authentication\Commands\**" />
+    <None Remove="Services\Authentication\Qurries\**" />
   </ItemGroup>
 
 
   <ItemGroup>
     <PackageReference Include="FluentResults" Version="3.15.2" />
+    <PackageReference Include="MediatR" Version="12.1.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
   </ItemGroup>
 
 
   <ItemGroup>
     <ProjectReference Include="..\BuberDinner.Domain\SmartRMS.Domain.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Services\Authentication\" />
   </ItemGroup>
 
 

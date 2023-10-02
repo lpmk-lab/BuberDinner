@@ -1,50 +1,73 @@
-using SS_RMS.Application.Common.Errors;
-using SS_RMS.Application.Services.Authentication;
 using SS_RMS.Contracts.Authentication;
-using FluentResults;
 using Microsoft.AspNetCore.Mvc;
+using ErrorOr;
+using SmartRMS.Api.Controllers;
+using SmartRMS.Domain.Common.Errors;
+
+using MediatR;
+using SmartRMS.Application.Authentication.Commands.Register;
+using SmartRMS.Application.Authentication.Commands.Commons;
+using SmartRMS.Application.Authentication.Commands.Login;
+
+namespace SS_RMS.Api.Controllers;
 
 
-namespace  SS_RMS.Api.Controllers;
-
-[ApiController]
 [Route("auth")]
- public class AuthenticationController : ControllerBase
+ public class AuthenticationController : ApiController
  {
 
 
-    private readonly IAuthenticationService _IAuthenticationService;
+    
+    public readonly ISender _mediator;
 
-    public AuthenticationController(IAuthenticationService IAuthenticationService)
+    public AuthenticationController(ISender mediator)
     {
-        _IAuthenticationService=IAuthenticationService;
+        _mediator=mediator;
     }
 
 
     [HttpPost("register")]
-    public IActionResult  Register(RegisterRequest request){
+    public async Task<IActionResult>  Register(RegisterRequest request){
 
-        Result<AuthenticationResult> registerResult=_IAuthenticationService.Register(
-            request.FirstName,
+        var command = new RegisterCommand(request.FirstName,
             request.LastName,
+            request.Email,
+            request.Password);
+        ErrorOr<AuthenticationResult> authResult=await _mediator.Send(command); 
+        return authResult.Match(
+            authResult => Ok(MapAuthResult(authResult)),
+            errors => Problem(errors)
+            );
+
+
+    }
+
+
+    [HttpPost("login")]
+    public async Task<IActionResult>  Login(LoginRequest request){
+      
+           
+        var query= new LoginQuery(
             request.Email,
             request.Password
         );
-        if (registerResult.IsSuccess)
+        ErrorOr<AuthenticationResult> authResult = await _mediator.Send(query);
+        if (authResult.IsError && authResult.FirstError==Errors.Authentication.InvalidCredentials)
         {
-            return Ok(MapAuthResult(registerResult.Value));
+            return Problem(statusCode: StatusCodes.Status401Unauthorized, title: authResult.FirstError.Description);
         }
-        var firstError = registerResult.Errors[0];
-        if(firstError is DuplicateEmailError)
-        {
-            return Problem(statusCode: StatusCodes.Status409Conflict, title: "email is already Used");
-        }
-        return Problem();
+        return authResult.Match(
+           authResult => Ok(MapAuthResult(authResult)),
+           errors => Problem(errors)
+           );
+
     }
+
+    #region Extract (MapAuthResult)
 
     private static AuthenticationResponse MapAuthResult(AuthenticationResult authResult)
     {
-        
+
         return new AuthenticationResponse(
            authResult.user.Id,
            authResult.user.FirstName,
@@ -53,26 +76,7 @@ namespace  SS_RMS.Api.Controllers;
            authResult.Token
    );
     }
+    #endregion
 
-    [HttpPost("login")]
-    public IActionResult  Login(LoginRequest request){
-      
-           
-        var authResult=_IAuthenticationService.Login(
-            request.Email,
-            request.Password
-        );
-        var response= new AuthenticationResponse(
-            authResult.user.Id,
-            authResult.user.FirstName,
-            authResult.user.LastName,
-            authResult.user.Email,
-              authResult.Token
-        );
-         return Ok(response);
-    
-
-    }
-
- }
+}
 
