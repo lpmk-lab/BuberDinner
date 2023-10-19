@@ -7,6 +7,7 @@ using SS_RMS.Application.Common.Interfaces.Persistence;
 using SmartRMS.Domain.Common.Errors;
 using SS_RMS.Domain.Entities;
 using SmartRMS.Application.Authentication.Commands.Commons;
+using SmartRMS.Domain.Models;
 
 namespace SmartRMS.Application.Authentication.Commands.Login;
 
@@ -14,15 +15,17 @@ public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<Authenticat
 {
     private readonly IJWTokenGenerator _IJWTokenGenerator;
     private readonly IUserRepository _IUserRepository;
-    public LoginQueryHandler(IJWTokenGenerator IJWTokenGenerator, IUserRepository IUserRepository)
+    private readonly Smart_RMS_SignOnContext _DBSigOnContext;
+    public LoginQueryHandler(IJWTokenGenerator IJWTokenGenerator, IUserRepository IUserRepository, Smart_RMS_SignOnContext DBSigOnContext )
     {
         _IJWTokenGenerator = IJWTokenGenerator;
         _IUserRepository = IUserRepository;
+        _DBSigOnContext= DBSigOnContext;
     }
     public async Task<ErrorOr<AuthenticationResult>> Handle(LoginQuery query, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
-        if (_IUserRepository.GetUserByEmail(query.Email) is not User user)
+        if (_IUserRepository.GetUserByEmail(query.Email) is not SysUser user)
         {
             return Errors.Authentication.InvalidCredentials;
         }
@@ -35,7 +38,7 @@ public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<Authenticat
         }
         //3 Create Token
         var token = _IJWTokenGenerator.GenerateToken(user);
-
+       
         return new AuthenticationResult(
             user,
             token

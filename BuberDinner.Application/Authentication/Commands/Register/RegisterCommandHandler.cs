@@ -7,6 +7,7 @@ using SS_RMS.Application.Common.Interfaces.Persistence;
 using SmartRMS.Domain.Common.Errors;
 using SS_RMS.Domain.Entities;
 using SmartRMS.Application.Authentication.Commands.Commons;
+using SmartRMS.Domain.Models;
 
 namespace SmartRMS.Application.Authentication.Commands.Register;
 
@@ -22,21 +23,21 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
     public async Task<ErrorOr<AuthenticationResult>> Handle(RegisterCommand command, CancellationToken cancellationToken)
     {
          await Task.CompletedTask;
-        if (_IUserRepository.GetUserByEmail(command.Email) != null)
+        if (_IUserRepository.GetUserByEmailCheck(command.Email) == true)
         {
             return Errors.User.DuplicateEmail;
         }
 
         //Create User(Generate Unique GUID)  & Persit to DB
-        var user = new User
+        var user = new SysUser
         {
-            FirstName = command.FirstName,
-            LastName = command.LastName,
+            UserCode = command.FirstName + " " + command.LastName ,
+            UserName = command.FirstName + " " + command.LastName ,
             Email = command.Email,
             Password = command.Password
         };
 
-        _IUserRepository.AddUser(user);
+        user=_IUserRepository.AddUser(user);
         //Create  JWtoken
 
         var token = _IJWTokenGenerator.GenerateToken(user);

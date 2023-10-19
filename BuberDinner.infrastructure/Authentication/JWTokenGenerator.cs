@@ -10,6 +10,7 @@ using Microsoft.VisualBasic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using SmartRMS.Domain.Models;
 
 namespace SS_RMS.infrastructure.Authentication;
 
@@ -24,7 +25,7 @@ public class JWTokenGenerator: IJWTokenGenerator
         _jwtSetting = JwtOptions.Value;
     }
 
-    public string GenerateToken(User user)
+    public string GenerateToken(SysUser user)
     {
 
         var signingCredentials = new SigningCredentials(
@@ -34,9 +35,9 @@ public class JWTokenGenerator: IJWTokenGenerator
             );
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-            new Claim(JwtRegisteredClaimNames.GivenName, user.FirstName),
-            new Claim(JwtRegisteredClaimNames.FamilyName, user.LastName),
+            new Claim(JwtRegisteredClaimNames.Sub, user.UserId.ToString()),
+            new Claim(JwtRegisteredClaimNames.GivenName, user.UserName),
+            new Claim(JwtRegisteredClaimNames.FamilyName, user.UserCode),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
 
         };
