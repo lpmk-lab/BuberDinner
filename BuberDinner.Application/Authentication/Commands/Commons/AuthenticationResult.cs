@@ -1,5 +1,6 @@
-using SmartRMS.Domain.Models;
-using SS_RMS.Domain.Entities;
+
+
+using SmartRMS.Domain.ModelSignOn;
 
 namespace SmartRMS.Application.Authentication.Commands.Commons;
 

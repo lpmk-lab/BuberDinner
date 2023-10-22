@@ -1,6 +1,6 @@
 ﻿
-using Microsoft.EntityFrameworkCore;
-using SmartRMS.Domain.Models;
+
+using SmartRMS.Domain.ModelSignOn;
 using SS_RMS.Application.Common.Interfaces.Persistence;
 using SS_RMS.Domain.Entities;
 

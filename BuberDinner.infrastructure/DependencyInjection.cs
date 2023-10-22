@@ -16,6 +16,10 @@ using Microsoft.EntityFrameworkCore;
 using SmartRMS.Domain.Models;
 using SmartRMS.Infrastructure.Authentication;
 using SmartRMS.Application.Common.Interfaces.Authentication;
+using SmartRMS.Domain.ModelSignOn;
+using Microsoft.EntityFrameworkCore.Metadata;
+using SmartRMS.Application.Common.Interfaces.Persistence;
+using SmartRMS.Infrastructure.Persistence;
 
 namespace SS_RMS.infrastructure;
 public static class DependencyInjection{
@@ -28,7 +32,10 @@ public static class DependencyInjection{
         service.AddAuth(configuration);
        
         service.AddSingleton<IDateTimeProvider, DateTimeProvider>();
+        #region Repository
         service.AddScoped<IUserRepository, UserRepository>();
+        service.AddScoped<ITabelRepository, TabelRepository>();
+        #endregion
         return service;
     }
  
@@ -38,8 +45,11 @@ public static class DependencyInjection{
     )
     {
         #region DB Connection
+        services.AddDbContext<Smart_RMSContext>(
+        options => options.UseSqlServer("name=ConnectionStrings:AdminConnection"));
+
         services.AddDbContext<Smart_RMS_SignOnContext>(
-        options => options.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
+   options => options.UseSqlServer("name=ConnectionStrings:SysConnection"));
         #endregion
         #region Token Generator
         var jwtSettings = new JwtSetting();

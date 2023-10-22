@@ -1,6 +1,6 @@
 @host= http://localhost:5189
 
-POST {{host}}/auth/login 
+Get {{host}}/auth/login 
 content-type: application/json
 
 {

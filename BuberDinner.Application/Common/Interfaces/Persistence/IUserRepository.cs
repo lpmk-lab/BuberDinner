@@ -4,8 +4,7 @@
 
 
 
-using SmartRMS.Domain.Models;
-using SS_RMS.Domain.Entities;
+using SmartRMS.Domain.ModelSignOn;
 
 namespace SS_RMS.Application.Common.Interfaces.Persistence
 {

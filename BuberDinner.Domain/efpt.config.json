@@ -7,7 +7,7 @@
    "IncludeConnectionString": false,
    "ModelNamespace": null,
    "OutputContextPath": null,
-   "OutputPath": "Models",
+   "OutputPath": "ModelSignOn",
    "PreserveCasingWithRegex": true,
    "ProjectRootNamespace": "SmartRMS.Domain",
    "Schemas": null,

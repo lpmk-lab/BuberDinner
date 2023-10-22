@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SmartRMS.Domain.Models;
 
-public partial class SysUser
+public partial class SysUserView
 {
     public string UserId { get; set; }
 

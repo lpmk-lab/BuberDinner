@@ -10,7 +10,8 @@ using Microsoft.VisualBasic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using SmartRMS.Domain.Models;
+
+using SmartRMS.Domain.ModelSignOn;
 
 namespace SS_RMS.infrastructure.Authentication;
 

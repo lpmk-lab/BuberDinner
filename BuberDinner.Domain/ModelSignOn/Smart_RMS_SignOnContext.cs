@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace SmartRMS.Domain.Models;
+namespace SmartRMS.Domain.ModelSignOn;
 
 public partial class Smart_RMS_SignOnContext : DbContext
 {

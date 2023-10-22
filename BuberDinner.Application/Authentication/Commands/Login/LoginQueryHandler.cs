@@ -9,6 +9,7 @@ using SS_RMS.Domain.Entities;
 using SmartRMS.Application.Authentication.Commands.Commons;
 using SmartRMS.Domain.Models;
 using SmartRMS.Application.Common.Interfaces.Authentication;
+using SmartRMS.Domain.ModelSignOn;
 
 namespace SmartRMS.Application.Authentication.Commands.Login;
 

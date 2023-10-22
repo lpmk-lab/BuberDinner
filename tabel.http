@@ -1,0 +1,31 @@
+@host= http://localhost:5189
+
+# Get {{host}}/master/tabels/getAll HTTP/1.1
+# content-type: application/json
+
+
+
+# Get {{host}}/master/tabels/get/1 HTTP/1.1
+# content-type: application/json
+
+
+
+# DELETE {{host}}/master/tabels/delete/1/00f2efb1-fd3a-495d-a651-d973c468d666 HTTP/1.1
+# content-type: application/json
+
+
+
+POST {{host}}/master/tabels/Save HTTP/1.1
+content-type: application/json
+
+{
+  "tableID": " q",
+  "tableName": "Doe",
+  "tableNo": "jsds.doe@example.com",
+  "location": "sdsds",
+  "requestID": "00f2efb1-fd3a-495d-a651-d973c468d666"
+}
+
+
+
+
