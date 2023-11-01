@@ -1,6 +1,7 @@
 ﻿using Azure.Core;
 using ErrorOr;
 using MapsterMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SmartRMS.Application.Authentication.Commands.Register;
 using SmartRMS.Application.Authentication.Commands.Tabel;
@@ -11,6 +12,7 @@ using SS_RMS.Domain.Entities;
 namespace SmartRMS.Api.Controllers
 {
     [Route("master/tabels")]
+    [Authorize]
     public class TabelController : ApiController
     {
        

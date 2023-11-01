@@ -19,8 +19,8 @@ POST {{host}}/master/tabels/Save HTTP/1.1
 content-type: application/json
 
 {
-  "tableID": " q",
-  "tableName": "Doe",
+  "tableID": "2ba4d8a1-c07a-410a-a320-f0b372cb72b0",
+  "tableName": "2232",
   "tableNo": "jsds.doe@example.com",
   "location": "sdsds",
   "requestID": "00f2efb1-fd3a-495d-a651-d973c468d666"

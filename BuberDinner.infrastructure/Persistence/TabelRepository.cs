@@ -29,6 +29,7 @@ internal class TabelRepository : ITabelRepository
 
 
             };
+            _DBContext.MasTabel.Add(NewRecord);
         }
 
         NewRecord.TableName = record.TableName;
@@ -38,7 +39,7 @@ internal class TabelRepository : ITabelRepository
 
         NewRecord.CreatedBy = record.RequestID;
         NewRecord.ModifiedBy = record.RequestID;
-        _DBContext.MasTabel.Add(NewRecord);
+    
         _DBContext.SaveChanges();
 
         return NewRecord;
