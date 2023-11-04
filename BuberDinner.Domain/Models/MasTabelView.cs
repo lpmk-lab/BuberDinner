@@ -28,4 +28,6 @@ public partial class MasTabelView
     public string CreatedByCode { get; set; }
 
     public string ModifiedByCode { get; set; }
+
+    public string Status { get; set; }
 }

@@ -7,5 +7,6 @@ public record TabelRequest(
     string TableName,
     string TableNo,
     string Location,
-    string RequestID
+    string RequestID,
+    string Status
 );

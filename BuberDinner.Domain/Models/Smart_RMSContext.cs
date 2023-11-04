@@ -39,6 +39,7 @@ public partial class Smart_RMSContext : DbContext
                 .IsRequired()
                 .HasMaxLength(50);
             entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+            entity.Property(e => e.Status).HasMaxLength(50);
             entity.Property(e => e.TableName).HasMaxLength(100);
             entity.Property(e => e.TableNo).HasMaxLength(100);
         });
@@ -60,6 +61,7 @@ public partial class Smart_RMSContext : DbContext
                 .HasMaxLength(50);
             entity.Property(e => e.ModifiedByCode).HasMaxLength(50);
             entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+            entity.Property(e => e.Status).HasMaxLength(50);
             entity.Property(e => e.TableId)
                 .IsRequired()
                 .HasMaxLength(50)

@@ -39,6 +39,7 @@ internal class TabelRepository : ITabelRepository
 
         NewRecord.CreatedBy = record.RequestID;
         NewRecord.ModifiedBy = record.RequestID;
+        NewRecord.Status = record.Status;
     
         _DBContext.SaveChanges();
 

@@ -9,6 +9,7 @@ namespace SS_RMS.Domain.Entities
         public string TableName { get; set; } = null!;
         public string TableNo { get; set; } = null!;
         public string Location { get; set; } = null!;
+        public string Status { get; set; } = null!;
 
         public string RequestID { get; set; } = null!;
     }
@@ -22,6 +23,7 @@ namespace SS_RMS.Domain.Entities
         public string TableName { get; set; } = null!;
         public string TableNo { get; set; } = null!;
         public string Location { get; set; } = null!;
+        public string Status { get; set; } = null!;
 
         public string CreatedByCode { get; set; } = null!;
         public DateTime CreatedOn { get; set; } 

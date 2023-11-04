@@ -13,6 +13,8 @@ public partial class MasTabel
 
     public string TableNo { get; set; }
 
+    public string Status { get; set; }
+
     public string Location { get; set; }
 
     public bool Active { get; set; }

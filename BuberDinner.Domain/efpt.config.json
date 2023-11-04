@@ -1,13 +1,13 @@
 ﻿{
    "CodeGenerationMode": 3,
-   "ContextClassName": "Smart_RMS_SignOnContext",
+   "ContextClassName": "Smart_RMSContext",
    "ContextNamespace": null,
    "DefaultDacpacSchema": null,
    "FilterSchemas": false,
    "IncludeConnectionString": false,
    "ModelNamespace": null,
    "OutputContextPath": null,
-   "OutputPath": "ModelSignOn",
+   "OutputPath": "Models",
    "PreserveCasingWithRegex": true,
    "ProjectRootNamespace": "SmartRMS.Domain",
    "Schemas": null,
@@ -16,11 +16,19 @@
    "T4TemplatePath": null,
    "Tables": [
       {
-         "Name": "[dbo].[SysUser]",
+         "Name": "[dbo].[Mas_Tabel]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Mas_TabelView]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[Sys_UserView]",
+         "ObjectType": 3
       }
    ],
-   "UiHint": "desktop-rgvbe5u.Smart_RMS_SignOn.dbo",
+   "UiHint": "desktop-rgvbe5u.Smart_RMS.dbo",
    "UncountableWords": null,
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": false,
@@ -33,6 +41,7 @@
    "UseLegacyPluralizer": false,
    "UseManyToManyEntity": false,
    "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
    "UseNoObjectFilter": false,
    "UseNodaTime": false,
    "UseNullableReferences": false,
