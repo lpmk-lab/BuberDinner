@@ -17,6 +17,14 @@ public partial class Smart_RMSContext : DbContext
 
     public virtual DbSet<MasCategoryView> MasCategoryView { get; set; }
 
+    public virtual DbSet<MasMenu> MasMenu { get; set; }
+
+    public virtual DbSet<MasMenuUnit> MasMenuUnit { get; set; }
+
+    public virtual DbSet<MasMenuUnitView> MasMenuUnitView { get; set; }
+
+    public virtual DbSet<MasMenuView> MasMenuView { get; set; }
+
     public virtual DbSet<MasTabel> MasTabel { get; set; }
 
     public virtual DbSet<MasTabelView> MasTabelView { get; set; }
@@ -68,6 +76,151 @@ public partial class Smart_RMSContext : DbContext
                 .HasMaxLength(50);
             entity.Property(e => e.ModifiedByCode).HasMaxLength(50);
             entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+        });
+
+        modelBuilder.Entity<MasMenu>(entity =>
+        {
+            entity.HasKey(e => e.MenuId);
+
+            entity.ToTable("Mas_Menu");
+
+            entity.Property(e => e.MenuId)
+                .HasMaxLength(50)
+                .HasColumnName("MenuID");
+            entity.Property(e => e.CategoryId)
+                .HasMaxLength(50)
+                .HasColumnName("CategoryID");
+            entity.Property(e => e.CookingTime).HasColumnType("decimal(18, 0)");
+            entity.Property(e => e.CreatedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+            entity.Property(e => e.IsNeedCook).HasColumnName("isNeedCook");
+            entity.Property(e => e.IsSubMenuId).HasColumnName("isSubMenuID");
+            entity.Property(e => e.MenuCode).HasMaxLength(50);
+            entity.Property(e => e.MenuName).HasMaxLength(100);
+            entity.Property(e => e.ModifiedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+            entity.Property(e => e.PhotoUrl)
+                .HasMaxLength(100)
+                .HasColumnName("PhotoURL");
+        });
+
+        modelBuilder.Entity<MasMenuUnit>(entity =>
+        {
+            entity.HasKey(e => e.UnitId).HasName("PK_Mas_MenuUnit]");
+
+            entity.ToTable("Mas_MenuUnit");
+
+            entity.Property(e => e.UnitId)
+                .HasMaxLength(50)
+                .HasColumnName("UnitID");
+            entity.Property(e => e.Barcode).HasMaxLength(50);
+            entity.Property(e => e.CreatedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+            entity.Property(e => e.MenuId)
+                .IsRequired()
+                .HasMaxLength(50)
+                .HasColumnName("MenuID");
+            entity.Property(e => e.ModifiedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+            entity.Property(e => e.Price).HasColumnType("decimal(18, 0)");
+            entity.Property(e => e.Qrcode)
+                .HasMaxLength(50)
+                .HasColumnName("QRCode");
+            entity.Property(e => e.UnitLabel).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<MasMenuUnitView>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("Mas_MenuUnitView");
+
+            entity.Property(e => e.Barcode).HasMaxLength(50);
+            entity.Property(e => e.CategoryId)
+                .HasMaxLength(50)
+                .HasColumnName("CategoryID");
+            entity.Property(e => e.CookingTime).HasMaxLength(50);
+            entity.Property(e => e.CreatedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.CreatedByCode).HasMaxLength(50);
+            entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+            entity.Property(e => e.IsNeedCook)
+                .HasMaxLength(50)
+                .HasColumnName("isNeedCook");
+            entity.Property(e => e.IsSubMenuId)
+                .HasMaxLength(50)
+                .HasColumnName("isSubMenuID");
+            entity.Property(e => e.MenuCode).HasMaxLength(50);
+            entity.Property(e => e.MenuId)
+                .IsRequired()
+                .HasMaxLength(50)
+                .HasColumnName("MenuID");
+            entity.Property(e => e.MenuName).HasMaxLength(100);
+            entity.Property(e => e.ModifiedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.ModifiedByCode).HasMaxLength(50);
+            entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+            entity.Property(e => e.PhotoUrl)
+                .HasMaxLength(100)
+                .HasColumnName("PhotoURL");
+            entity.Property(e => e.Price).HasColumnType("decimal(18, 0)");
+            entity.Property(e => e.Qrcode)
+                .HasMaxLength(50)
+                .HasColumnName("QRCode");
+            entity.Property(e => e.UnitId)
+                .IsRequired()
+                .HasMaxLength(50)
+                .HasColumnName("UnitID");
+            entity.Property(e => e.UnitLabel).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<MasMenuView>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("Mas_MenuView");
+
+            entity.Property(e => e.CategoryIcon).HasMaxLength(50);
+            entity.Property(e => e.CategoryId)
+                .HasMaxLength(50)
+                .HasColumnName("CategoryID");
+            entity.Property(e => e.CategoryName).HasMaxLength(50);
+            entity.Property(e => e.CookingTime).HasMaxLength(50);
+            entity.Property(e => e.CreatedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.CreatedByCode).HasMaxLength(50);
+            entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+            entity.Property(e => e.IsNeedCook)
+                .HasMaxLength(50)
+                .HasColumnName("isNeedCook");
+            entity.Property(e => e.IsSubMenuId)
+                .HasMaxLength(50)
+                .HasColumnName("isSubMenuID");
+            entity.Property(e => e.MenuCode).HasMaxLength(50);
+            entity.Property(e => e.MenuId)
+                .IsRequired()
+                .HasMaxLength(50)
+                .HasColumnName("MenuID");
+            entity.Property(e => e.MenuName).HasMaxLength(100);
+            entity.Property(e => e.ModifiedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.ModifiedByCode).HasMaxLength(50);
+            entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+            entity.Property(e => e.PhotoUrl)
+                .HasMaxLength(100)
+                .HasColumnName("PhotoURL");
         });
 
         modelBuilder.Entity<MasTabel>(entity =>

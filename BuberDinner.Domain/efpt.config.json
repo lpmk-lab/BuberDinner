@@ -20,11 +20,27 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[Mas_Menu]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Mas_MenuUnit]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Mas_Tabel]",
          "ObjectType": 0
       },
       {
          "Name": "[dbo].[Mas_CategoryView]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[Mas_MenuUnitView]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[Mas_MenuView]",
          "ObjectType": 3
       },
       {

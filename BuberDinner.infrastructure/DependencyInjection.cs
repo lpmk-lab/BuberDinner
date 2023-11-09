@@ -20,6 +20,7 @@ using SmartRMS.Domain.ModelSignOn;
 using Microsoft.EntityFrameworkCore.Metadata;
 using SmartRMS.Application.Common.Interfaces.Persistence;
 using SmartRMS.Infrastructure.Persistence;
+using SmartRMS.Application.Common.Interfaces;
 
 namespace SS_RMS.infrastructure;
 public static class DependencyInjection{
@@ -36,6 +37,7 @@ public static class DependencyInjection{
         service.AddScoped<IUserRepository, UserRepository>();
         service.AddScoped<ITabelRepository, TabelRepository>();
         service.AddScoped<ICategoryRepository, CategoryRepository>();
+        service.AddScoped<IMenuRepository,MenuRepository>();
         #endregion
         return service;
     }

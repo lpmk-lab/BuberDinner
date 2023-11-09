@@ -33,7 +33,7 @@ namespace SmartRMS.Api.Controllers
         {
 
 
-            `ErrorOr<List<MasTabelView>> returnValue = _IDTabelHandler.GetAll();
+            ErrorOr<List<MasTabelView>> returnValue = _IDTabelHandler.GetAll();
          
             return returnValue.Match(
             returnValue => Ok(_mapper.Map<List<TabelsView>>(returnValue)),

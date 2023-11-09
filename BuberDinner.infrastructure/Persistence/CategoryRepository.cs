@@ -2,7 +2,7 @@
 using SmartRMS.Application.Common.Interfaces.Persistence;
 using SmartRMS.Domain.Entities;
 using SmartRMS.Domain.Models;
-using SS_RMS.Domain.Entities;
+
 
 namespace SmartRMS.Infrastructure.Persistence;
 
