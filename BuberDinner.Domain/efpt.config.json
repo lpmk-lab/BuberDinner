@@ -16,8 +16,16 @@
    "T4TemplatePath": null,
    "Tables": [
       {
+         "Name": "[dbo].[Mas_Category]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Mas_Tabel]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Mas_CategoryView]",
+         "ObjectType": 3
       },
       {
          "Name": "[dbo].[Mas_TabelView]",

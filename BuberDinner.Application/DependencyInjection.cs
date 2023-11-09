@@ -7,6 +7,7 @@ using FluentValidation;
 using System.Reflection;
 using SmartRMS.Application.Common.Interfaces.Persistence;
 using SmartRMS.Application.Authentication.Commands.Tabel;
+using SmartRMS.Application.Authentication.Commands.Category;
 
 namespace SS_RMS.Application;
 
@@ -17,6 +18,7 @@ public static class DependencyInjection
     {
         services.AddMediatR(typeof(DependencyInjection).Assembly);
         services.AddScoped<IDTabelHandler, TabelHandler>();
+        services.AddScoped<IDCategoryHandler, CategoryHandler>();
         services.AddScoped(
         typeof(IPipelineBehavior<,>),
         typeof(ValidationBehaviors<,>));

@@ -13,6 +13,10 @@ public partial class Smart_RMSContext : DbContext
     {
     }
 
+    public virtual DbSet<MasCategory> MasCategory { get; set; }
+
+    public virtual DbSet<MasCategoryView> MasCategoryView { get; set; }
+
     public virtual DbSet<MasTabel> MasTabel { get; set; }
 
     public virtual DbSet<MasTabelView> MasTabelView { get; set; }
@@ -21,6 +25,51 @@ public partial class Smart_RMSContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<MasCategory>(entity =>
+        {
+            entity.HasKey(e => e.CategoryId);
+
+            entity.ToTable("Mas_Category");
+
+            entity.Property(e => e.CategoryId)
+                .HasMaxLength(50)
+                .HasColumnName("CategoryID");
+            entity.Property(e => e.CategoryIcon).HasMaxLength(50);
+            entity.Property(e => e.CategoryName).HasMaxLength(50);
+            entity.Property(e => e.CreatedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+            entity.Property(e => e.ModifiedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+        });
+
+        modelBuilder.Entity<MasCategoryView>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("Mas_CategoryView");
+
+            entity.Property(e => e.CategoryIcon).HasMaxLength(50);
+            entity.Property(e => e.CategoryId)
+                .IsRequired()
+                .HasMaxLength(50)
+                .HasColumnName("CategoryID");
+            entity.Property(e => e.CategoryName).HasMaxLength(50);
+            entity.Property(e => e.CreatedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.CreatedByCode).HasMaxLength(50);
+            entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+            entity.Property(e => e.ModifiedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.ModifiedByCode).HasMaxLength(50);
+            entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+        });
+
         modelBuilder.Entity<MasTabel>(entity =>
         {
             entity.HasKey(e => e.TableId);

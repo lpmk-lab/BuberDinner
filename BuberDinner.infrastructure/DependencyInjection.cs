@@ -35,6 +35,7 @@ public static class DependencyInjection{
         #region Repository
         service.AddScoped<IUserRepository, UserRepository>();
         service.AddScoped<ITabelRepository, TabelRepository>();
+        service.AddScoped<ICategoryRepository, CategoryRepository>();
         #endregion
         return service;
     }
