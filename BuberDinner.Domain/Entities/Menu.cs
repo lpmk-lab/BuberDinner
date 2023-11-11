@@ -28,9 +28,9 @@ public class MenuView
     public decimal CookingTime { get; set; }
     public string CookingTimeString => CookingTime.
        ToString();
-    public bool isSubMenuID { get; set; }
+    public bool IsSubMenuId { get; set; }
     public string CategoryName { get; set; } = null!;
-    public string isSubMenuIDString => isSubMenuID.
+    public string isSubMenuIDString => IsSubMenuId.
       ToString();
 
 
