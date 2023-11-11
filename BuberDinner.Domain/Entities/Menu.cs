@@ -29,6 +29,7 @@ public class MenuView
     public string CookingTimeString => CookingTime.
        ToString();
     public bool isSubMenuID { get; set; }
+    public string CategoryName { get; set; } = null!;
     public string isSubMenuIDString => isSubMenuID.
       ToString();
 
