@@ -7,21 +7,7 @@ namespace SmartRMS.Domain.Models;
 
 public partial class MasMenuView
 {
-    public string MenuId { get; set; }
-
-    public string MenuCode { get; set; }
-
-    public string MenuName { get; set; }
-
-    public string PhotoUrl { get; set; }
-
-    public string CategoryId { get; set; }
-
-    public bool IsNeedCook { get; set; }
-
-    public decimal CookingTime { get; set; }
-
-    public bool IsSubMenuId { get; set; }
+    public bool? IsSubMenuId { get; set; }
 
     public bool Active { get; set; }
 
@@ -40,4 +26,18 @@ public partial class MasMenuView
     public string CategoryName { get; set; }
 
     public string CategoryIcon { get; set; }
+
+    public string MenuId { get; set; }
+
+    public string MenuCode { get; set; }
+
+    public string MenuName { get; set; }
+
+    public string PhotoUrl { get; set; }
+
+    public string CategoryId { get; set; }
+
+    public bool? IsNeedCook { get; set; }
+
+    public decimal? CookingTime { get; set; }
 }

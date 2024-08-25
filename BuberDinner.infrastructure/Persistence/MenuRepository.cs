@@ -36,7 +36,7 @@ namespace SmartRMS.Infrastructure.Persistence;
 
             NewRecord.MenuName = record.MenuName;
             NewRecord.PhotoUrl = record.PhotoURL;
-            NewRecord.CategoryId = record.CategoryID;
+        NewRecord.CategoryId = record.CategoryID;
             NewRecord.IsNeedCook = record.isNeedCook == "true" ? true:false ;
             NewRecord.IsSubMenuId = record.isSubMenuID == "true" ? true:false ;
             decimal cookingTime = 0;
@@ -89,5 +89,18 @@ namespace SmartRMS.Infrastructure.Persistence;
             MasMenuView the_Record = _DBContext.MasMenuView.Where(x => x.MenuId == recordID && x.Active == true).FirstOrDefault();
             return the_Record;
         }
+
+    public MasMenu? uploadImage(string ImageUrl, string MenuID)
+    {
+        MasMenu NewRecord = Get(MenuID.ToString());
+        if (NewRecord != null)
+        {
+            NewRecord.PhotoUrl = ImageUrl;
+            _DBContext.SaveChanges();
+
+            return NewRecord;
+        }
+        return NewRecord;
     }
+}
 

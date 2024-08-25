@@ -38,6 +38,7 @@ public static class DependencyInjection{
         service.AddScoped<ITabelRepository, TabelRepository>();
         service.AddScoped<ICategoryRepository, CategoryRepository>();
         service.AddScoped<IMenuRepository,MenuRepository>();
+        service.AddScoped<IMenuUnitRepository,MenuUnitRepository>();
         #endregion
         return service;
     }

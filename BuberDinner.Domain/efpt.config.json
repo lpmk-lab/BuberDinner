@@ -20,6 +20,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[Mas_ItemUnit]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Mas_Menu]",
          "ObjectType": 0
       },
@@ -58,6 +62,7 @@
    "UseDatabaseNames": false,
    "UseDateOnlyTimeOnly": false,
    "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
    "UseFluentApiOnly": true,
    "UseHandleBars": false,
    "UseHierarchyId": false,

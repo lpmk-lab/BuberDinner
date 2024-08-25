@@ -17,6 +17,8 @@ public partial class Smart_RMSContext : DbContext
 
     public virtual DbSet<MasCategoryView> MasCategoryView { get; set; }
 
+    public virtual DbSet<MasItemUnit> MasItemUnit { get; set; }
+
     public virtual DbSet<MasMenu> MasMenu { get; set; }
 
     public virtual DbSet<MasMenuUnit> MasMenuUnit { get; set; }
@@ -78,6 +80,27 @@ public partial class Smart_RMSContext : DbContext
             entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
         });
 
+        modelBuilder.Entity<MasItemUnit>(entity =>
+        {
+            entity.HasKey(e => e.UnitId);
+
+            entity.ToTable("Mas_ItemUnit");
+
+            entity.Property(e => e.UnitId)
+                .HasMaxLength(50)
+                .HasColumnName("UnitID");
+            entity.Property(e => e.Barcode).HasMaxLength(100);
+            entity.Property(e => e.ConvertQty)
+                .HasColumnType("decimal(18, 0)")
+                .HasColumnName("ConvertQTY");
+            entity.Property(e => e.ItLowerUnit).HasColumnName("itLowerUnit");
+            entity.Property(e => e.ItemId)
+                .HasMaxLength(50)
+                .HasColumnName("ItemID");
+            entity.Property(e => e.Price).HasMaxLength(50);
+            entity.Property(e => e.UnitName).HasMaxLength(50);
+        });
+
         modelBuilder.Entity<MasMenu>(entity =>
         {
             entity.HasKey(e => e.MenuId);
@@ -118,10 +141,14 @@ public partial class Smart_RMSContext : DbContext
                 .HasMaxLength(50)
                 .HasColumnName("UnitID");
             entity.Property(e => e.Barcode).HasMaxLength(50);
+            entity.Property(e => e.ConvertQty)
+                .HasColumnType("decimal(18, 0)")
+                .HasColumnName("ConvertQTY");
             entity.Property(e => e.CreatedBy)
                 .IsRequired()
                 .HasMaxLength(50);
             entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+            entity.Property(e => e.ItLowerUnit).HasColumnName("itLowerUnit");
             entity.Property(e => e.MenuId)
                 .IsRequired()
                 .HasMaxLength(50)
@@ -147,18 +174,18 @@ public partial class Smart_RMSContext : DbContext
             entity.Property(e => e.CategoryId)
                 .HasMaxLength(50)
                 .HasColumnName("CategoryID");
-            entity.Property(e => e.CookingTime).HasMaxLength(50);
+            entity.Property(e => e.ConvertQty)
+                .HasColumnType("decimal(18, 0)")
+                .HasColumnName("ConvertQTY");
+            entity.Property(e => e.CookingTime).HasColumnType("decimal(18, 0)");
             entity.Property(e => e.CreatedBy)
                 .IsRequired()
                 .HasMaxLength(50);
             entity.Property(e => e.CreatedByCode).HasMaxLength(50);
             entity.Property(e => e.CreatedOn).HasColumnType("datetime");
-            entity.Property(e => e.IsNeedCook)
-                .HasMaxLength(50)
-                .HasColumnName("isNeedCook");
-            entity.Property(e => e.IsSubMenuId)
-                .HasMaxLength(50)
-                .HasColumnName("isSubMenuID");
+            entity.Property(e => e.IsNeedCook).HasColumnName("isNeedCook");
+            entity.Property(e => e.IsSubMenuId).HasColumnName("isSubMenuID");
+            entity.Property(e => e.ItLowerUnit).HasColumnName("itLowerUnit");
             entity.Property(e => e.MenuCode).HasMaxLength(50);
             entity.Property(e => e.MenuId)
                 .IsRequired()
@@ -195,18 +222,14 @@ public partial class Smart_RMSContext : DbContext
                 .HasMaxLength(50)
                 .HasColumnName("CategoryID");
             entity.Property(e => e.CategoryName).HasMaxLength(50);
-            entity.Property(e => e.CookingTime).HasMaxLength(50);
+            entity.Property(e => e.CookingTime).HasColumnType("decimal(18, 0)");
             entity.Property(e => e.CreatedBy)
                 .IsRequired()
                 .HasMaxLength(50);
             entity.Property(e => e.CreatedByCode).HasMaxLength(50);
             entity.Property(e => e.CreatedOn).HasColumnType("datetime");
-            entity.Property(e => e.IsNeedCook)
-                .HasMaxLength(50)
-                .HasColumnName("isNeedCook");
-            entity.Property(e => e.IsSubMenuId)
-                .HasMaxLength(50)
-                .HasColumnName("isSubMenuID");
+            entity.Property(e => e.IsNeedCook).HasColumnName("isNeedCook");
+            entity.Property(e => e.IsSubMenuId).HasColumnName("isSubMenuID");
             entity.Property(e => e.MenuCode).HasMaxLength(50);
             entity.Property(e => e.MenuId)
                 .IsRequired()

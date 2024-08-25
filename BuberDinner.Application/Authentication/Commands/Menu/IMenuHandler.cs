@@ -11,5 +11,6 @@ namespace SmartRMS.Application.Authentication.Commands.Menu;
     public ErrorOr<MasMenuView> Get(string ID);
     public ErrorOr<MasMenu> Save(MenuRecord record);
     public ErrorOr<bool> Delete(string ID, string requestID);
+    public ErrorOr<MasMenu> Upload(string FileUrl, string MenuID);
 }
 

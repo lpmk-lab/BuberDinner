@@ -1,5 +1,6 @@
-﻿using SmartRMS.Domain.Entities;
+﻿
 using SmartRMS.Domain.Models;
+
 
 namespace SmartRMS.Application.Common.Interfaces;
 
@@ -10,7 +11,8 @@ public interface IMenuRepository
     MasMenuView? GetView(string recordID);
 
 
-    MasMenu? Add(MenuRecord data);
+    MasMenu? Add(Men data);
+    MasMenu? uploadImage(string ImageUrl,string MenuID);
 
     List<MasMenuView>? GetAll();
     public bool? Delete(string recordID, string userID);

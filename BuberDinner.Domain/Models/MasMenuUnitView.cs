@@ -41,9 +41,13 @@ public partial class MasMenuUnitView
 
     public string PhotoUrl { get; set; }
 
-    public string IsNeedCook { get; set; }
+    public bool? IsNeedCook { get; set; }
 
-    public string CookingTime { get; set; }
+    public decimal? CookingTime { get; set; }
 
-    public string IsSubMenuId { get; set; }
+    public bool? IsSubMenuId { get; set; }
+
+    public bool? ItLowerUnit { get; set; }
+
+    public decimal? ConvertQty { get; set; }
 }

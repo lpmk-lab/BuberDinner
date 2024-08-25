@@ -28,6 +28,7 @@ var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 {
     //app.UseMiddleware<ErrorHandlingMiddleware>();
+    app.UseStaticFiles();//Image Host 
     app.UseExceptionHandler("/error");
     app.UseCors();
     app.UseHttpsRedirection();

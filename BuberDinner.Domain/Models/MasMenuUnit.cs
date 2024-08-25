@@ -28,4 +28,8 @@ public partial class MasMenuUnit
     public string ModifiedBy { get; set; }
 
     public DateTime ModifiedOn { get; set; }
+
+    public bool? ItLowerUnit { get; set; }
+
+    public decimal? ConvertQty { get; set; }
 }

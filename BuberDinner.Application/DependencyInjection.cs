@@ -9,6 +9,7 @@ using SmartRMS.Application.Common.Interfaces.Persistence;
 using SmartRMS.Application.Authentication.Commands.Tabel;
 using SmartRMS.Application.Authentication.Commands.Category;
 using SmartRMS.Application.Authentication.Commands.Menu;
+using SmartRMS.Application.Authentication.Commands.MenuUnit;
 
 namespace SS_RMS.Application;
 
@@ -21,6 +22,7 @@ public static class DependencyInjection
         services.AddScoped<IDTabelHandler, TabelHandler>();
         services.AddScoped<IDCategoryHandler, CategoryHandler>();
         services.AddScoped<IMenuHandler, MenuHandler>();
+        services.AddScoped<IMenuUnitHandler, MenuUnitHandler>();
         services.AddScoped(
         typeof(IPipelineBehavior<,>),
         typeof(ValidationBehaviors<,>));

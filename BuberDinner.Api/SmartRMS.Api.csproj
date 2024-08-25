@@ -17,6 +17,11 @@
     <ProjectReference Include="..\BuberDinner.Infrastructure\SmartRMS.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\File\Menu\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>

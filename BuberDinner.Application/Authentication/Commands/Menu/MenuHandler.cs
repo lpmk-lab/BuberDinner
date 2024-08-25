@@ -25,6 +25,11 @@ namespace SmartRMS.Application.Authentication.Commands.Menu;
             return CommonErrors.Delete.RecordNotFound;
         }
     }
+     public ErrorOr<MasMenu> Upload(string FileUrl, string MenuID)
+    {
+        return _IMenuRepository.uploadImage(FileUrl, MenuID);
+        
+    }
 
     public ErrorOr<MasMenuView> Get(string ID)
     {
