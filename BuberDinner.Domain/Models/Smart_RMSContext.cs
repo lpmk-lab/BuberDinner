@@ -17,6 +17,10 @@ public partial class Smart_RMSContext : DbContext
 
     public virtual DbSet<MasCategoryView> MasCategoryView { get; set; }
 
+    public virtual DbSet<MasCustomer> MasCustomer { get; set; }
+
+    public virtual DbSet<MasCustomerView> MasCustomerView { get; set; }
+
     public virtual DbSet<MasItemUnit> MasItemUnit { get; set; }
 
     public virtual DbSet<MasMenu> MasMenu { get; set; }
@@ -78,6 +82,51 @@ public partial class Smart_RMSContext : DbContext
                 .HasMaxLength(50);
             entity.Property(e => e.ModifiedByCode).HasMaxLength(50);
             entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+        });
+
+        modelBuilder.Entity<MasCustomer>(entity =>
+        {
+            entity.HasKey(e => e.CustomerId);
+
+            entity.ToTable("Mas_Customer");
+
+            entity.Property(e => e.CustomerId)
+                .HasMaxLength(50)
+                .HasColumnName("CustomerID");
+            entity.Property(e => e.CreatedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+            entity.Property(e => e.CustomerName).HasMaxLength(100);
+            entity.Property(e => e.ModifiedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+            entity.Property(e => e.PhoneNo).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<MasCustomerView>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("Mas_CustomerView");
+
+            entity.Property(e => e.CreatedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.CreatedByCode).HasMaxLength(50);
+            entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+            entity.Property(e => e.CustomerId)
+                .IsRequired()
+                .HasMaxLength(50)
+                .HasColumnName("CustomerID");
+            entity.Property(e => e.CustomerName).HasMaxLength(100);
+            entity.Property(e => e.ModifiedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.ModifiedByCode).HasMaxLength(50);
+            entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+            entity.Property(e => e.PhoneNo).HasMaxLength(50);
         });
 
         modelBuilder.Entity<MasItemUnit>(entity =>

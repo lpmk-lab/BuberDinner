@@ -39,6 +39,7 @@ public static class DependencyInjection{
         service.AddScoped<ICategoryRepository, CategoryRepository>();
         service.AddScoped<IMenuRepository,MenuRepository>();
         service.AddScoped<IMenuUnitRepository,MenuUnitRepository>();
+        service.AddScoped<ICustomerRepository,CustomerRepository>();
         #endregion
         return service;
     }
@@ -53,7 +54,7 @@ public static class DependencyInjection{
         options => options.UseSqlServer("name=ConnectionStrings:AdminConnection"));
 
         services.AddDbContext<Smart_RMS_SignOnContext>(
-   options => options.UseSqlServer("name=ConnectionStrings:SysConnection"));
+        options => options.UseSqlServer("name=ConnectionStrings:SysConnection"));
         #endregion
         #region Token Generator
         var jwtSettings = new JwtSetting();
@@ -96,7 +97,7 @@ public static class DependencyInjection{
         var encryptionSettings = new EncryptionSettings();
         configuration.Bind(EncryptionSettings.SectionName, encryptionSettings);
 
-        services.AddSingleton(Options.Create(encryptionSettings));
+        services.AddSingleton(Options.Create( ));
         services.AddSingleton<IEncryption, Encryption>();
         services.AddSingleton<IDecryption, Decryption>();
 

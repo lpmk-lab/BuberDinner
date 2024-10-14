@@ -20,6 +20,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[Mas_Customer]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Mas_ItemUnit]",
          "ObjectType": 0
       },
@@ -37,6 +41,10 @@
       },
       {
          "Name": "[dbo].[Mas_CategoryView]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[Mas_CustomerView]",
          "ObjectType": 3
       },
       {
