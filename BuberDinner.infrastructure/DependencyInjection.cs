@@ -97,7 +97,7 @@ public static class DependencyInjection{
         var encryptionSettings = new EncryptionSettings();
         configuration.Bind(EncryptionSettings.SectionName, encryptionSettings);
 
-        services.AddSingleton(Options.Create( ));
+        services.AddSingleton(Options.Create(encryptionSettings));
         services.AddSingleton<IEncryption, Encryption>();
         services.AddSingleton<IDecryption, Decryption>();
 
