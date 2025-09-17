@@ -40,6 +40,7 @@ public static class DependencyInjection{
         service.AddScoped<IMenuRepository,MenuRepository>();
         service.AddScoped<IMenuUnitRepository,MenuUnitRepository>();
         service.AddScoped<ICustomerRepository,CustomerRepository>();
+        service.AddScoped<IStoreRepository, StoreRepository>();
         #endregion
         return service;
     }

@@ -23,9 +23,6 @@ namespace SmartRMS.Infrastructure.Persistence
                     Active = true,
                     CreatedOn = DateTime.Now,
                     ModifiedOn = DateTime.Now,
-
-
-
                 };
                 _DBContext.MasMenuUnit.Add(NewRecord);
             }
@@ -91,7 +88,6 @@ namespace SmartRMS.Infrastructure.Persistence
             MasMenuUnitView the_Record = _DBContext.MasMenuUnitView.Where(x => x.MenuId == recordID && x.Active == true).FirstOrDefault();
             return the_Record;
         }
-
        
     }
 }

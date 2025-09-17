@@ -1,9 +1,9 @@
-@host= http://localhost:5189
+@host= https://localhost:7097
 
 post {{host}}/auth/login 
 content-type: application/json
 
 {
-  "email": "jsds.doe@example.com",
+ "email": "jsds.doe@example.com",
   "password": "Psw@1234"
 }

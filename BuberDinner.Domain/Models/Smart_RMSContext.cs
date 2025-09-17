@@ -13,6 +13,8 @@ public partial class Smart_RMSContext : DbContext
     {
     }
 
+    public virtual DbSet<BillInvocie> BillInvocie { get; set; }
+
     public virtual DbSet<MasCategory> MasCategory { get; set; }
 
     public virtual DbSet<MasCategoryView> MasCategoryView { get; set; }
@@ -20,8 +22,6 @@ public partial class Smart_RMSContext : DbContext
     public virtual DbSet<MasCustomer> MasCustomer { get; set; }
 
     public virtual DbSet<MasCustomerView> MasCustomerView { get; set; }
-
-    public virtual DbSet<MasItemUnit> MasItemUnit { get; set; }
 
     public virtual DbSet<MasMenu> MasMenu { get; set; }
 
@@ -31,6 +31,10 @@ public partial class Smart_RMSContext : DbContext
 
     public virtual DbSet<MasMenuView> MasMenuView { get; set; }
 
+    public virtual DbSet<MasStore> MasStore { get; set; }
+
+    public virtual DbSet<MasStoreView> MasStoreView { get; set; }
+
     public virtual DbSet<MasTabel> MasTabel { get; set; }
 
     public virtual DbSet<MasTabelView> MasTabelView { get; set; }
@@ -39,6 +43,38 @@ public partial class Smart_RMSContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<BillInvocie>(entity =>
+        {
+            entity.HasKey(e => e.InvoiceId);
+
+            entity.ToTable("Bill_Invocie");
+
+            entity.Property(e => e.InvoiceId)
+                .HasMaxLength(50)
+                .HasColumnName("InvoiceID");
+            entity.Property(e => e.CreatedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+            entity.Property(e => e.CustomerId)
+                .HasMaxLength(50)
+                .HasColumnName("CustomerID");
+            entity.Property(e => e.InvoiceDate).HasColumnType("datetime");
+            entity.Property(e => e.InvoiceNo).HasMaxLength(50);
+            entity.Property(e => e.ModifiedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+            entity.Property(e => e.Remain).HasColumnType("decimal(18, 0)");
+            entity.Property(e => e.StoreId)
+                .HasMaxLength(50)
+                .HasColumnName("StoreID");
+            entity.Property(e => e.TotalCost).HasColumnType("decimal(18, 0)");
+            entity.Property(e => e.TotalCreditPay).HasColumnType("decimal(18, 0)");
+            entity.Property(e => e.TotalOtherAmount).HasColumnType("decimal(18, 0)");
+            entity.Property(e => e.TotalPay).HasColumnType("decimal(18, 0)");
+        });
+
         modelBuilder.Entity<MasCategory>(entity =>
         {
             entity.HasKey(e => e.CategoryId);
@@ -127,27 +163,6 @@ public partial class Smart_RMSContext : DbContext
             entity.Property(e => e.ModifiedByCode).HasMaxLength(50);
             entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
             entity.Property(e => e.PhoneNo).HasMaxLength(50);
-        });
-
-        modelBuilder.Entity<MasItemUnit>(entity =>
-        {
-            entity.HasKey(e => e.UnitId);
-
-            entity.ToTable("Mas_ItemUnit");
-
-            entity.Property(e => e.UnitId)
-                .HasMaxLength(50)
-                .HasColumnName("UnitID");
-            entity.Property(e => e.Barcode).HasMaxLength(100);
-            entity.Property(e => e.ConvertQty)
-                .HasColumnType("decimal(18, 0)")
-                .HasColumnName("ConvertQTY");
-            entity.Property(e => e.ItLowerUnit).HasColumnName("itLowerUnit");
-            entity.Property(e => e.ItemId)
-                .HasMaxLength(50)
-                .HasColumnName("ItemID");
-            entity.Property(e => e.Price).HasMaxLength(50);
-            entity.Property(e => e.UnitName).HasMaxLength(50);
         });
 
         modelBuilder.Entity<MasMenu>(entity =>
@@ -293,6 +308,70 @@ public partial class Smart_RMSContext : DbContext
             entity.Property(e => e.PhotoUrl)
                 .HasMaxLength(100)
                 .HasColumnName("PhotoURL");
+        });
+
+        modelBuilder.Entity<MasStore>(entity =>
+        {
+            entity.HasKey(e => e.StoreId);
+
+            entity.ToTable("Mas_Store");
+
+            entity.Property(e => e.StoreId).HasMaxLength(50);
+            entity.Property(e => e.CreatedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.CreatedDate)
+                .IsRequired()
+                .HasMaxLength(10)
+                .IsFixedLength();
+            entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+            entity.Property(e => e.Email).HasMaxLength(200);
+            entity.Property(e => e.Location)
+                .IsRequired()
+                .HasMaxLength(300);
+            entity.Property(e => e.ManagerName).HasMaxLength(200);
+            entity.Property(e => e.ModifiedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+            entity.Property(e => e.PhoneNumber).HasMaxLength(100);
+            entity.Property(e => e.StoreName)
+                .IsRequired()
+                .HasMaxLength(300);
+        });
+
+        modelBuilder.Entity<MasStoreView>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("Mas_StoreView");
+
+            entity.Property(e => e.CreatedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.CreatedByCode).HasMaxLength(50);
+            entity.Property(e => e.CreatedDate)
+                .IsRequired()
+                .HasMaxLength(10)
+                .IsFixedLength();
+            entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+            entity.Property(e => e.Email).HasMaxLength(200);
+            entity.Property(e => e.Location)
+                .IsRequired()
+                .HasMaxLength(300);
+            entity.Property(e => e.ManagerName).HasMaxLength(200);
+            entity.Property(e => e.ModifiedBy)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.ModifiedByCode).HasMaxLength(50);
+            entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+            entity.Property(e => e.PhoneNumber).HasMaxLength(100);
+            entity.Property(e => e.StoreId)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.StoreName)
+                .IsRequired()
+                .HasMaxLength(300);
         });
 
         modelBuilder.Entity<MasTabel>(entity =>

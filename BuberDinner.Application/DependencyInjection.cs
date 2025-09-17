@@ -11,6 +11,7 @@ using SmartRMS.Application.Authentication.Commands.Category;
 using SmartRMS.Application.Authentication.Commands.Menu;
 using SmartRMS.Application.Authentication.Commands.MenuUnit;
 using SmartRMS.Application.Authentication.Commands.Customer;
+using SmartRMS.Application.Authentication.Commands.Store;
 
 namespace SS_RMS.Application;
 
@@ -25,6 +26,7 @@ public static class DependencyInjection
         services.AddScoped<IMenuHandler, MenuHandler>();
         services.AddScoped<IMenuUnitHandler, MenuUnitHandler>();
         services.AddScoped<ICustomerHandler, CustomerHandler>();
+        services.AddScoped<IStoreHandler, StoreHandler>();
         services.AddScoped(
         typeof(IPipelineBehavior<,>),
         typeof(ValidationBehaviors<,>));

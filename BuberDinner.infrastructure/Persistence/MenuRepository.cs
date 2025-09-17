@@ -36,7 +36,7 @@ namespace SmartRMS.Infrastructure.Persistence;
 
             NewRecord.MenuName = record.MenuName;
             NewRecord.PhotoUrl = record.PhotoURL;
-        NewRecord.CategoryId = record.CategoryID;
+            NewRecord.CategoryId = record.CategoryID;
             NewRecord.IsNeedCook = record.isNeedCook == "true" ? true:false ;
             NewRecord.IsSubMenuId = record.isSubMenuID == "true" ? true:false ;
             decimal cookingTime = 0;

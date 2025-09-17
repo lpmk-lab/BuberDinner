@@ -16,6 +16,10 @@
    "T4TemplatePath": null,
    "Tables": [
       {
+         "Name": "[dbo].[Bill_Invocie]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Mas_Category]",
          "ObjectType": 0
       },
@@ -24,15 +28,15 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[Mas_ItemUnit]",
-         "ObjectType": 0
-      },
-      {
          "Name": "[dbo].[Mas_Menu]",
          "ObjectType": 0
       },
       {
          "Name": "[dbo].[Mas_MenuUnit]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Mas_Store]",
          "ObjectType": 0
       },
       {
@@ -56,6 +60,10 @@
          "ObjectType": 3
       },
       {
+         "Name": "[dbo].[Mas_StoreView]",
+         "ObjectType": 3
+      },
+      {
          "Name": "[dbo].[Mas_TabelView]",
          "ObjectType": 3
       },
@@ -76,7 +84,7 @@
    "UseHierarchyId": false,
    "UseInflector": false,
    "UseLegacyPluralizer": false,
-   "UseManyToManyEntity": false,
+   "UseManyToManyEntity": true,
    "UseNoDefaultConstructor": false,
    "UseNoNavigations": false,
    "UseNoObjectFilter": false,
