@@ -28,7 +28,7 @@ namespace SmartRMS.Domain.Entities
         public string StoreName { get; set; } = null!;
 
         public string Location { get; set; } = null!;
-
+        public bool IsSaleStore { get; set; } = false!;
         public string PhoneNumber { get; set; } = null!;
         public string Email { get; set; } = null!;
         public string ManagerName { get; set; } = null!;

@@ -29,9 +29,9 @@ public partial class MasStoreView
 
     public DateTime ModifiedOn { get; set; }
 
-    public string CreatedDate { get; set; }
-
     public string CreatedByCode { get; set; }
 
     public string ModifiedByCode { get; set; }
+
+    public bool IsSaleStore { get; set; }
 }

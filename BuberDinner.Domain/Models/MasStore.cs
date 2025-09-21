@@ -30,6 +30,4 @@ public partial class MasStore
     public string ModifiedBy { get; set; }
 
     public DateTime ModifiedOn { get; set; }
-
-    public string CreatedDate { get; set; }
 }

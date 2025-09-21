@@ -320,10 +320,6 @@ public partial class Smart_RMSContext : DbContext
             entity.Property(e => e.CreatedBy)
                 .IsRequired()
                 .HasMaxLength(50);
-            entity.Property(e => e.CreatedDate)
-                .IsRequired()
-                .HasMaxLength(10)
-                .IsFixedLength();
             entity.Property(e => e.CreatedOn).HasColumnType("datetime");
             entity.Property(e => e.Email).HasMaxLength(200);
             entity.Property(e => e.Location)
@@ -350,10 +346,6 @@ public partial class Smart_RMSContext : DbContext
                 .IsRequired()
                 .HasMaxLength(50);
             entity.Property(e => e.CreatedByCode).HasMaxLength(50);
-            entity.Property(e => e.CreatedDate)
-                .IsRequired()
-                .HasMaxLength(10)
-                .IsFixedLength();
             entity.Property(e => e.CreatedOn).HasColumnType("datetime");
             entity.Property(e => e.Email).HasMaxLength(200);
             entity.Property(e => e.Location)
